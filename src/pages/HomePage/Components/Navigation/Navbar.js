@@ -93,15 +93,12 @@ const Navbar = (props) => {
                                 href="http://"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                sx={{
-                                    
-                                    width:{sm:"50px", xs:"50px"}
-                                }}
+                                
                             >
                                 <img
                                     src="https://elanta.app/nazar/starbelly-demo/img/ui/logo.svg"
                                     alt="logo"
-                                    sx={{width:"50px"}}
+                                    fullWidth
 
                                 />
                             </a>
@@ -112,7 +109,7 @@ const Navbar = (props) => {
                                         xs: "none",
                                         md: "flex",
                                         justifyContent: "center",
-                                        mx: "0",
+                                        mx: "2",
                                     },
                                 }}
                             >
@@ -136,11 +133,8 @@ const Navbar = (props) => {
                                 ))}
                             </Box>
 
-                            <Box sx={{
-                                display: {
-                                sm:"flex"
-                            }, flexDirection:"row" }}>
-                                <IconButton sx={{mx:"10px", p:"10px", borderRadius:"50%"}} color='secondary' variant="text" size='large' >
+                            <Box>
+                                <IconButton sx={{margin:{sm:"0 5px", md:"10px"}, p:"10px", borderRadius:"50%"}} color='secondary' variant="text" size='large' >
                                     <LocalMallOutlinedIcon  fontSize="inherit" />
                                 </IconButton>
                                 <Tooltip title="Open settings">
@@ -192,7 +186,7 @@ const Navbar = (props) => {
                                         </MenuItem>
                                     ))}
                                 </Menu>
-                                <IconButton sx={{mx:"10px", p:"10px", borderRadius:"50%"}} color='secondary' variant="text" size='large' >
+                                <IconButton sx={{margin:{sm:"0 5px", md:"10px"}, p:"10px", borderRadius:"50%"}} color='secondary' variant="text" size='large' >
                                     <MoreVertIcon  fontSize="inherit" />
                                 </IconButton>
                             </Box>
