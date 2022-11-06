@@ -14,12 +14,14 @@ import {
     IconButton,
     Menu,
     MenuItem,
+    TextField,
     Tooltip,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import LocalMallOutlinedIcon from "@mui/icons-material/LocalMallOutlined";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import CloseIcon from "@mui/icons-material/Close";
+import SearchIcon from "@mui/icons-material/Search";
 import "react-modern-drawer/dist/index.css";
 import Drawer from "react-modern-drawer";
 
@@ -109,6 +111,49 @@ const Navbar = (props) => {
                                             <Typography textAlign="center">{page}</Typography>
                                         </MenuItem>
                                     ))}
+                                    <Box
+                                        sx={{
+                                            display: {
+                                                xs: "flex",
+                                                md: "none",
+                                                justifyContent: "center",
+                                                alignItems: "center",
+                                                mx: "2",
+                                            },
+                                        }}
+                                    >
+                                        <form>
+                                            <TextField
+                                                id="standard-search"
+                                                label="Search here"
+                                                type="search"
+                                                variant="standard"
+                                                sx={{
+                                                    mb: "15px",
+                                                    ml:"10px",
+                                                    width: "100px"
+                                                
+                                                }}
+                                                color="primary"
+                                                size="small"
+                                                
+                                            />
+                                            <IconButton
+                                                sx={{
+                                                    my: "10px",
+                                                    p: "10px",
+                                                    borderRadius: "50%",
+                                                }}
+                                                color="secondary"
+                                                variant="text"
+                                                size="large"
+                                                onClick={toggleDrawer}
+                                                type="submit"
+                                            >
+                                                <SearchIcon />
+                                            </IconButton>
+                                        </form>
+                                    </Box>
                                 </Menu>
                             </Box>
 
@@ -118,19 +163,62 @@ const Navbar = (props) => {
                                         src="https://elanta.app/nazar/starbelly-demo/img/ui/logo.svg"
                                         alt="logo"
                                         width={"120px"}
-                                        
                                     />
                                 </a>
                             </Box>
-                            <Box sx={{ display: { xs: "none", md: "flex" } }}>
+                            <Box
+                                sx={{
+                                    display: {
+                                        xs: "none",
+                                        md: "flex",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                    },
+                                }}
+                            >
                                 <a href="http://" target="_blank" rel="noopener noreferrer">
                                     <img
                                         src="https://elanta.app/nazar/starbelly-demo/img/ui/logo.svg"
                                         alt="logo"
                                         fullWidth
-                                        
                                     />
                                 </a>
+                            </Box>
+                            <Box
+                                sx={{
+                                    display: {
+                                        xs: "none",
+                                        md: "flex",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        mx: "2",
+                                    },
+                                }}
+                            >
+                                <form>
+                                    <TextField
+                                        id="standard-search"
+                                        label="Search here"
+                                        type="search"
+                                        variant="standard"
+                                        sx={{ mb: "15px" }}
+                                        color="primary"
+                                    />
+                                    <IconButton
+                                        sx={{
+                                            my: "10px",
+                                            p: "10px",
+                                            borderRadius: "50%",
+                                        }}
+                                        color="secondary"
+                                        variant="text"
+                                        size="large"
+                                        onClick={toggleDrawer}
+                                        type="submit"
+                                    >
+                                        <SearchIcon />
+                                    </IconButton>
+                                </form>
                             </Box>
                             <Box
                                 sx={{
