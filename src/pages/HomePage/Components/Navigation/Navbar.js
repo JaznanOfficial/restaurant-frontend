@@ -112,13 +112,26 @@ const Navbar = (props) => {
                                 </Menu>
                             </Box>
 
-                            <a href="http://" target="_blank" rel="noopener noreferrer">
-                                <img
-                                    src="https://elanta.app/nazar/starbelly-demo/img/ui/logo.svg"
-                                    alt="logo"
-                                    fullWidth
-                                />
-                            </a>
+                            <Box sx={{ display: { xs: "flex", md: "none" } }}>
+                                <a href="http://" target="_blank" rel="noopener noreferrer">
+                                    <img
+                                        src="https://elanta.app/nazar/starbelly-demo/img/ui/logo.svg"
+                                        alt="logo"
+                                        width={"120px"}
+                                        
+                                    />
+                                </a>
+                            </Box>
+                            <Box sx={{ display: { xs: "none", md: "flex" } }}>
+                                <a href="http://" target="_blank" rel="noopener noreferrer">
+                                    <img
+                                        src="https://elanta.app/nazar/starbelly-demo/img/ui/logo.svg"
+                                        alt="logo"
+                                        fullWidth
+                                        
+                                    />
+                                </a>
+                            </Box>
                             <Box
                                 sx={{
                                     display: {
