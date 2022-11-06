@@ -74,7 +74,7 @@ const Navbar = (props) => {
         <React.Fragment>
             <CssBaseline />
             <HideOnScroll {...props}>
-                <AppBar sx={{ backgroundColor: "white", py: "15px" }}>
+                <AppBar sx={{ backgroundColor: "white", py: "15px", position:"sticky"}}>
                     <Container maxWidth="lg">
                         <Toolbar disableGutters sx={{ justifyContent: { xs: "space-between" } }}>
                             <Box sx={{ display: { xs: "flex", md: "none" } }}>
@@ -213,7 +213,6 @@ const Navbar = (props) => {
                                         color="secondary"
                                         variant="text"
                                         size="large"
-                                        onClick={toggleDrawer}
                                         type="submit"
                                     >
                                         <SearchIcon />
@@ -336,7 +335,7 @@ const Navbar = (props) => {
                     </Container>
                 </AppBar>
             </HideOnScroll>
-            <Toolbar />
+            
             <Drawer
                 open={isOpen}
                 onClose={toggleDrawer}
