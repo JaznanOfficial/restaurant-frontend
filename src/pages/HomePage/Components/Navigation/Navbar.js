@@ -5,10 +5,25 @@ import Typography from "@mui/material/Typography";
 import CssBaseline from "@mui/material/CssBaseline";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import Slide from "@mui/material/Slide";
-import { Avatar, Box, Button, Container, IconButton, Menu, MenuItem, Tooltip } from "@mui/material";
+import {
+    Avatar,
+    Badge,
+    Box,
+    Button,
+    Container,
+    IconButton,
+    Menu,
+    MenuItem,
+    Tooltip,
+} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
+import LocalMallOutlinedIcon from "@mui/icons-material/LocalMallOutlined";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
+import CloseIcon from "@mui/icons-material/Close";
+import "react-modern-drawer/dist/index.css";
+import Drawer from "react-modern-drawer";
+
+// hide navbar on scroll----------------->
 
 function HideOnScroll(props) {
     const { children, window } = props;
@@ -45,6 +60,14 @@ const Navbar = (props) => {
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
     };
+
+    // drawer function---------->
+
+    const [isOpen, setIsOpen] = React.useState(false);
+    const toggleDrawer = () => {
+        setIsOpen((prevState) => !prevState);
+    };
+
     return (
         <React.Fragment>
             <CssBaseline />
@@ -89,22 +112,15 @@ const Navbar = (props) => {
                                 </Menu>
                             </Box>
 
-                            <a
-                                href="http://"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                
-                            >
+                            <a href="http://" target="_blank" rel="noopener noreferrer">
                                 <img
                                     src="https://elanta.app/nazar/starbelly-demo/img/ui/logo.svg"
                                     alt="logo"
                                     fullWidth
-
                                 />
                             </a>
                             <Box
                                 sx={{
-                                    
                                     display: {
                                         xs: "none",
                                         md: "flex",
@@ -134,8 +150,19 @@ const Navbar = (props) => {
                             </Box>
 
                             <Box>
-                                <IconButton sx={{margin:{sm:"0 5px", md:"10px"}, p:"10px", borderRadius:"50%"}} color='secondary' variant="text" size='large' >
-                                    <LocalMallOutlinedIcon  fontSize="inherit" />
+                                <IconButton
+                                    sx={{
+                                        margin: { sm: "0 5px", md: "10px" },
+                                        p: "10px",
+                                        borderRadius: "50%",
+                                    }}
+                                    color="secondary"
+                                    variant="text"
+                                    size="large"
+                                >
+                                    <Badge badgeContent={4} color="primary">
+                                        <LocalMallOutlinedIcon fontSize="inherit" />
+                                    </Badge>
                                 </IconButton>
                                 <Tooltip title="Open settings">
                                     <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -186,8 +213,22 @@ const Navbar = (props) => {
                                         </MenuItem>
                                     ))}
                                 </Menu>
-                                <IconButton sx={{margin:{sm:"0 5px", md:"10px"}, p:"10px", borderRadius:"50%"}} color='secondary' variant="text" size='large' >
-                                    <MoreVertIcon  fontSize="inherit" />
+                                <IconButton
+                                    sx={{
+                                        margin: { sm: "0 5px", md: "10px" },
+                                        p: "10px",
+                                        borderRadius: "50%",
+                                    }}
+                                    color="secondary"
+                                    variant="text"
+                                    size="large"
+                                    onClick={toggleDrawer}
+                                >
+                                    {!isOpen ? (
+                                        <MoreVertIcon fontSize="inherit" />
+                                    ) : (
+                                        <CloseIcon fontSize="inherit" />
+                                    )}
                                 </IconButton>
                             </Box>
                         </Toolbar>
@@ -195,6 +236,15 @@ const Navbar = (props) => {
                 </AppBar>
             </HideOnScroll>
             <Toolbar />
+            <Drawer
+                open={isOpen}
+                onClose={toggleDrawer}
+                direction="right"
+                className="bla bla bla"
+                size="380px"
+            >
+                <div style={{ position: "relative", top: 100 }}>Hello World</div>
+            </Drawer>
         </React.Fragment>
     );
 };
