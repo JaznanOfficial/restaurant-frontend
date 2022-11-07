@@ -10,6 +10,9 @@ function App() {
             },
         secondary: {
               main:"#231E41"
+            },
+        wh: {
+              main:"#ffff"
             }
       },
       typography: {
