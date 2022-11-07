@@ -4,23 +4,24 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
-import { Box, IconButton } from "@mui/material";
+import { Box, Container, IconButton, Typography } from "@mui/material";
 
 const CategoryCarousel = () => {
-    const sliderRef = useRef()
+    const sliderRef = useRef();
     const settings = {
-        dots: true,
-        infinite: false,
+        
+        dots: false,
+        infinite: true,
         speed: 500,
-        slidesToShow: 4,
-        slidesToScroll: 4,
+        slidesToShow: 10,
+        slidesToScroll: 1,
         initialSlide: 0,
         responsive: [
             {
-                breakpoint: 1024,
+                breakpoint: 1025,
                 settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3,
+                    slidesToShow: 6,
+                    slidesToScroll: 1,
                     infinite: true,
                     dots: true,
                 },
@@ -28,15 +29,15 @@ const CategoryCarousel = () => {
             {
                 breakpoint: 600,
                 settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2,
-                    initialSlide: 2,
+                    slidesToShow: 4,
+                    slidesToScroll: 1,
+                    initialSlide: 0,
                 },
             },
             {
                 breakpoint: 480,
                 settings: {
-                    slidesToShow: 1,
+                    slidesToShow: 2,
                     slidesToScroll: 1,
                 },
             },
@@ -44,72 +45,86 @@ const CategoryCarousel = () => {
     };
 
     const prev = () => {
-        sliderRef.current.slickPrev()
-    }
+        sliderRef.current.slickPrev();
+    };
     const next = () => {
-        sliderRef.current.slickNext()
-    }
+        sliderRef.current.slickNext();
+    };
     return (
-        <div>
-            
-            <Slider {...settings} ref={sliderRef}>
-                <div>
-                    <h3>1</h3>
-                </div>
-                <div>
-                    <h3>2</h3>
-                </div>
-                <div>
-                    <h3>3</h3>
-                </div>
-                <div>
-                    <h3>4</h3>
-                </div>
-                <div>
-                    <h3>5</h3>
-                </div>
-                <div>
-                    <h3>6</h3>
-                </div>
-                <div>
-                    <h3>7</h3>
-                </div>
-                <div>
-                    <h3>8</h3>
-                </div>
-            </Slider>
-
-            <Box sx={{mt:"20px"}} >
-            <IconButton
-                sx={{
-                    my: "10px",
-                    p: "10px",
-                    borderRadius: "50%",
-                }}
-                color="secondary"
-                variant="text"
-                size="large"
+        <Box style={{ display: "flex", justifyContent:"center", alignItems:"center", borderBottom:"1px solid #d3d0c6", padding:"10px"}}>
+            <Box sx={{ mt: "20px" }} className="sm-display-none">
+                <IconButton
+                    sx={{
+                        my: "10px",
+                        p: "10px",
+                        borderRadius: "50%",
+                    }}
+                    color="secondary"
+                    variant="text"
+                    size="large"
                     type="submit"
                     onClick={prev}
-            >
-                <NavigateBeforeIcon />
-            </IconButton>
-            <IconButton
-                sx={{
-                    my: "10px",
-                    p: "10px",
-                    borderRadius: "50%",
-                }}
-                color="secondary"
-                variant="text"
-                size="large"
+                >
+                    <NavigateBeforeIcon />
+                </IconButton>
+            </Box>
+            <Box style={{  width: "90%", margin:"0 auto" }}>
+                <Slider {...settings} ref={sliderRef}>
+                    {Array.from({ length: 15 }).map(() => {
+                        
+                       return <div
+                            style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                width: "50%",
+                            }}
+                        >
+                            <div
+                                style={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                }}
+                            >
+                                <img
+                                    src="https://klbtheme.com/groci/wp-content/uploads/2018/08/1-4-62x62.jpg"
+                                    alt=""
+                                    width="80px"
+                                    style={{ textAlign: "center" }}
+                                />
+                            </div>
+                            <Typography variant="h6" style={{ margin: "0px", display: "inline" }}>
+                                Vegetable
+                            </Typography>{" "}
+                            <br />
+                            <Typography variant="caption" style={{ margin: "0px" }}>
+                                12 items
+                            </Typography>
+                        </div>
+                    })}
+                    
+                </Slider>
+            </Box>
+            <Box sx={{ mt: "20px" }} className="sm-display-none">
+                <IconButton
+                    sx={{
+                        my: "10px",
+                        p: "10px",
+                        borderRadius: "50%",
+                    }}
+                    color="secondary"
+                    variant="text"
+                    size="large"
                     type="submit"
                     onClick={next}
-            >
-                <NavigateNextIcon />
-            </IconButton>
+                >
+                    <NavigateNextIcon />
+                </IconButton>
             </Box>
-        </div>
+        </Box>
     );
 };
 

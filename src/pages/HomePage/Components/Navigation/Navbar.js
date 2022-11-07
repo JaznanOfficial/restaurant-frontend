@@ -74,7 +74,7 @@ const Navbar = (props) => {
         <React.Fragment>
             <CssBaseline />
             <HideOnScroll {...props}>
-                <AppBar sx={{ backgroundColor: "white", py: "15px", position:"sticky"}}>
+                <AppBar sx={{ backgroundColor: "white", py: "15px", position:"sticky", boxShadow:"none", borderBottom:"1px solid #d3d0c6"}}>
                     <Container maxWidth="lg">
                         <Toolbar disableGutters sx={{ justifyContent: { xs: "space-between" } }}>
                             <Box sx={{ display: { xs: "flex", md: "none" } }}>
