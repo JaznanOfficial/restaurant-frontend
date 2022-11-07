@@ -16,6 +16,7 @@ const CategoryCarousel = () => {
         slidesToShow: 10,
         slidesToScroll: 1,
         initialSlide: 0,
+        arrows:false,
         responsive: [
             {
                 breakpoint: 1025,
@@ -52,14 +53,17 @@ const CategoryCarousel = () => {
     };
     return (
         <Box style={{ display: "flex", justifyContent:"center", alignItems:"center", borderBottom:"1px solid #d3d0c6", padding:"10px"}}>
-            <Box sx={{ mt: "20px" }} className="sm-display-none">
+            <Box sx={{ mt: "20px" }} className="">
                 <IconButton
                     sx={{
                         my: "10px",
                         p: "10px",
                         borderRadius: "50%",
+                        backgroundColor: "#F7C532",
+                        "&:hover": { color: "#F7C532" },
+                        border:"1px solid #F7C532"
                     }}
-                    color="secondary"
+                    color="wh"
                     variant="text"
                     size="large"
                     type="submit"
@@ -68,7 +72,7 @@ const CategoryCarousel = () => {
                     <NavigateBeforeIcon />
                 </IconButton>
             </Box>
-            <Box style={{  width: "90%", margin:"0 auto" }}>
+            <Box style={{  width: "90%", margin:"0 auto" }} className="sm-width-70" >
                 <Slider {...settings} ref={sliderRef}>
                     {Array.from({ length: 15 }).map(() => {
                         
@@ -108,14 +112,17 @@ const CategoryCarousel = () => {
                     
                 </Slider>
             </Box>
-            <Box sx={{ mt: "20px" }} className="sm-display-none">
+            <Box sx={{ mt: "20px" }} className="">
                 <IconButton
-                    sx={{
-                        my: "10px",
-                        p: "10px",
-                        borderRadius: "50%",
-                    }}
-                    color="secondary"
+                sx={{
+                    my: "10px",
+                    p: "10px",
+                    borderRadius: "50%",
+                    backgroundColor: "#F7C532",
+                    "&:hover": { color: "#F7C532" },
+                    border:"1px solid #F7C532"
+                }}
+                color="wh"
                     variant="text"
                     size="large"
                     type="submit"

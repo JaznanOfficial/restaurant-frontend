@@ -3,9 +3,10 @@
   font-family: 'Rubik', sans-serif;
 }
 
+
 @media only screen and (max-width: 600px) {
-  .sm-display-none{
-    display:none !important;
+  .sm-width-70{
+    width:70% !important;
   }
 }
 
